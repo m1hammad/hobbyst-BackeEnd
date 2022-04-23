@@ -7,7 +7,7 @@ const {validationResult} = require('express-validator')
 const jwt = require("jsonwebtoken")
 
 
-exports.auth_signup_post = async (req, res) => {
+exports.auth_signup_post = (req, res) => {
     const user = new User(req.body)
     // try{
     let hash = bcrypt.hashSync(req.body.password, salt)
