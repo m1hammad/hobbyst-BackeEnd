@@ -6,57 +6,56 @@ const salt = 10;
 const {validationResult} = require('express-validator')
 const jwt = require("jsonwebtoken")
 
-// HTTP GET - Signup - load the signup form 
-exports.auth_signup_get = (req, res) => {
-    res.render('auth/signup')
-}
 
-// HTTP POST - Signup - to post data
-exports.auth_signup_post = (req, res) => {
+exports.auth_signup_post = async (req, res) => {
     const user = new User(req.body)
-
+    // try{
     let hash = bcrypt.hashSync(req.body.password, salt)
-    console.log(hash)
+    console.log('this is hash', hash)
     user.password = hash;
     user.save()
-    .then(() => {
-        // res.redirect("/");
-        res.json({"message":"User Created Successfully"})
-      })
+    
+      // const isMatch = bcrypt.compareSync(password, user.password);
+      // console.log(password)
+      // console.log(user.password)
+  
+      // if(!isMatch){
+      //   return res.json({ "message": "Password mismatched!!!"}).status(400);
+      // }
+    .then( response => {
+      const payload = {
+        user:{
+          id: user._id,
+          name: user.firstName,
+          
+        }
+      }
+
+      jwt.sign(
+        payload,
+        process.env.secret,
+        { expiresIn: 36000000},
+        (err, token) => {
+          if(err) throw err;
+          res.json({"message":"User Created Successfully", token }).status(200);
+        }
+      )
+    })
+    // }
     .catch(err => {
         if(err.code === 11000){
             req.flash('error','username already exists')
-            // res.redirect('/auth/signup')
+
             res.json({"message":"Email Already Exists"})
         }
         else{
             const errors = validationResult(req)
             if(!errors.isEmpty()){
-                // res.status(400).json({errors: errors.array})
-                // req.flash('validationErrors', errors.errors)
                 res.json({"message":"Validation Errors", "ValidationErrors": errors.errors})
-                // res.redirect('/auth/signup')
-                // res.json({"message":"errorCreating User. please try again later"})
             }
-            
-            // console.log(err);
-            // res.send(err);
         }
     })
 }
-
-//HTTP GET - Signin - to load signin form 
-exports.auth_signin_get = (req, res) => {
-    res.render('auth/signin')
-}
-// HTTP POST - Signin - to post the data
-// exports.auth_signin_post = 
-//   passport.authenticate("local", {
-//       successRedirect: "/",
-//       failureRedirect: "/auth/signin",
-//       failureFlash: 'Invalid username or password',
-//       successFlash: 'Login successful!',
-//   })
 
 exports.auth_signin_post = async (req, res) => {
     // req.body.emailAddress
@@ -66,7 +65,7 @@ exports.auth_signin_post = async (req, res) => {
   
     try{
       let user = await User.findOne({ emailAddress });
-      console.log(user);
+      console.log('sign in backend',user);
   
       if(!user)
       {
@@ -103,11 +102,3 @@ exports.auth_signin_post = async (req, res) => {
     }
   
   }
-
-// HTTP GET - Logout - to logout user
-
-exports.auth_logout_get = (req,res) => {
-    req.logout()
-    req.flash('success', "You are logged out")
-    res.redirect('/auth/signin')
-}
