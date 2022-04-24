@@ -22,11 +22,14 @@ hobbies = [
 
 ]
 
+events = [
+    {title:"MAr21 Lila Birthday", photo: 'url', description: "lila turns 29 this year!", maxParticipants:"no limit", preciseLocation: "123 yourmom", exactLocation:'1234 yourmom',hobby:[], users:[]},
+    {title:"Mar21 Lila Birthday", photo: 'url', description: "Andrew turns 30 this year!", maxParticipants:"no limit", preciseLocation: "1234 yourmom", exactLocation:'123 yourmom',hobby:[], users:[]}
 
-module.exports = hobbies
+]
+
+
+module.exports = hobbies, events
 
 
 
-// in index controller, 
-// for loop of hobbies
-// Hobby.create()
