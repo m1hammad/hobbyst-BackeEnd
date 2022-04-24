@@ -15,13 +15,6 @@ exports.auth_signup_post = (req, res) => {
     user.password = hash;
     user.save()
     
-      // const isMatch = bcrypt.compareSync(password, user.password);
-      // console.log(password)
-      // console.log(user.password)
-  
-      // if(!isMatch){
-      //   return res.json({ "message": "Password mismatched!!!"}).status(400);
-      // }
     .then( response => {
       const payload = {
         user:{

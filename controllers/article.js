@@ -8,6 +8,7 @@ exports.article_create_get = function(req, res){
     Author.find()
     .then(authors => {
         res.render('article/add', {authors})
+        // res.json({authors})
     }) 
     .catch(err => {console.log(err)})
     // res.render('article/add');

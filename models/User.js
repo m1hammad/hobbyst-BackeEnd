@@ -48,12 +48,14 @@ const userSchema = mongoose.Schema({
         minlength: 2,
         maxlength:150
     },
-    hobby: {
-        type: Array
-    },
-    events: {
-        type: Array
-    }
+    hobby: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Hobby',
+    }],
+    events: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Event',
+    }]
     },
 
 {

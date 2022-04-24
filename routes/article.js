@@ -11,7 +11,7 @@ router.use(methodOverride('_method'))
 
 router.use(express.urlencoded({extended: true}))
 
-router.get('/article/add', isLoggedIn, articleCtrl.article_create_get)
+router.get('/article/add', articleCtrl.article_create_get)
 
 router.post('/article/add', articleCtrl.article_create_post)
 
