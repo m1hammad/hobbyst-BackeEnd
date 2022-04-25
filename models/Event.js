@@ -10,12 +10,16 @@ const eventSchema = mongoose.Schema({
     }, 
     photo: { 
         type: String, 
-        required: true,  
+        // required: true,  
         minlength: [5, "Please upload a photo"], 
+    },
+    dateAndTime:{
+        type:Date,
+        // required:true
     },
     description: {
         type:String,
-        required: true,
+        // required: true,
         minlength: [10, 'Event description must be longer than 10 characters'],
         maxlength:[1000,'Event description must be shorter than 1000 characters']
     },
@@ -24,13 +28,13 @@ const eventSchema = mongoose.Schema({
     },
     preciseLocation: {
         type:String,
-        required:true,
+        // required:true,
         minlength: [10, 'Location must be longer than 10 characters'],
         maxlength:1000
     }, 
     generalLocation: {
         type: String,
-        required: true,
+        // required: true,
         minlength: [10, 'Location must be longer than 10 characters'],
         maxlength:1000
     }, 
