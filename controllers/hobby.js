@@ -28,3 +28,16 @@ exports.hobbyseed = async(req, res) =>{
     }
 }
 
+
+exports.showHobby = (req, res) => {
+    console.log("test")
+    console.log(req.params.id)
+    Hobby.findById(req.params.id)
+    .then(hobby => {
+        console.log(hobby)
+        res.json({hobby})
+    })
+    .catch( err =>{
+        console.log(err)
+    })
+}

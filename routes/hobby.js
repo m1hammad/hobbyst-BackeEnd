@@ -6,7 +6,9 @@ const { append } = require('express/lib/response')
 
 router.use(methodOverride('_method'))
 
-router.get('/hobbyindex',hobbyCntrl.hobbyseed)
+router.get('/hobbyindex',hobbyCntrl.hobbyseed) 
+
+router.get('/hobbydetail/:id',hobbyCntrl.showHobby)
 
 
 module.exports = router
