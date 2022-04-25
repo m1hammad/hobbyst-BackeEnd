@@ -13,6 +13,10 @@ const eventSchema = mongoose.Schema({
         required: true,  
         minlength: [5, "Please upload a photo"], 
     },
+    dateAndTime:{
+        type:Date,
+        required:true
+    },
     description: {
         type:String,
         required: true,
