@@ -10,4 +10,5 @@ router.get('/hobbyindex',hobbyCntrl.hobbyseed)
 
 router.get('/hobbydetail/:id',hobbyCntrl.showHobby)
 
+
 module.exports = router
