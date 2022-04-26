@@ -38,9 +38,9 @@ exports.hobby_add_user = async(req, res) => {
         let hobby = await Hobby.findById(id)
         hobby.users.push(user._id)
         hobby.save()
+        let results = await Hobby.findById(hobbyIds)
+        console.log(results)
     })
-    
-    
     res.status(200).send('Done')
 
 }
