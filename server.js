@@ -67,7 +67,7 @@ app.use('/', articlesRoute);
 app.use('/', authorRoutes);
 app.use('/', authRoutes);
 app.use('/', hobbyRoutes);
-app.use('/', eventRoutes);
+// app.use('/', eventRoutes);
 
 
 

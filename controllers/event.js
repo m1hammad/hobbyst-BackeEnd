@@ -3,6 +3,7 @@ const User = require("../models/User")
 const moment = require('moment')
 const {Hobby} = require('../models/Hobby')
 
+
   exports.event_post = async (req, res) =>{
   // need to push the user that is being passed in as a param to the event.users list
     // console.log('hitting controller')
@@ -60,5 +61,4 @@ const {Hobby} = require('../models/Hobby')
   //     console.log(err)
   //     res.send('ERROR')
   // })
-
 
