@@ -1,11 +1,11 @@
 const router = require('express').Router()
 const {body} = require('express-validator')
-const eventCntrl = require('../controllers/event')  
+// const eventCntrl = require('../controllers/event')  
 
 
-router.post('/eventcreateform', 
-[
-    body('title').isLength({min: 3}).withMessage('event name must be at least 3 characters long'),
+// router.post('/eventcreateform', 
+// [
+//     body('title').isLength({min: 3}).withMessage('event name must be at least 3 characters long'),
 //     // body('photo').isLength({min: 3}),
 //     // body('description').isEmail(),
 //     // body('dateAndTime').isLength({min : 6}),
@@ -13,7 +13,7 @@ router.post('/eventcreateform',
 //     // body('generalLocation').isLength({min: 10}),
 //     // body('preciseLocation').isLength({min: 10})
 
-], 
-eventCntrl.event_post)
+// ], 
+// eventCntrl.event_post)
 
-module.exports = router
+// module.exports = router

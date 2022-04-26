@@ -5,10 +5,7 @@ let hobbies = require('./seed.js')
 // this function takes in the hobbies from the seed and populates
 // them into the model objects of 'Hobby'
 exports.hobbyseed = async(req, res) =>{
-    // let newHobby = new Hobby()
-
-
-    
+    // let newHobby = new Hobby()    
     let hobbiesList = await Hobby.find({})
     if (hobbiesList.length == 0){
         for (let hobby of hobbies)
@@ -32,7 +29,7 @@ exports.hobbyseed = async(req, res) =>{
 exports.showHobby = (req, res) => {
     console.log("test")
     console.log(req.params.id)
-    Hobby.findById(req.params.id)
+    Hobby.findById(req.params.id) 
     .then(hobby => {
         console.log(hobby)
         res.json({hobby})
