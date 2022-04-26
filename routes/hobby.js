@@ -10,5 +10,5 @@ router.get('/hobbyindex',hobbyCntrl.hobbyseed)
 
 router.get('/hobbydetail/:id',hobbyCntrl.showHobby)
 
-
+router.post('/hobbbyy', hobbyCntrl.hobby_add_user)
 module.exports = router
