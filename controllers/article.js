@@ -7,7 +7,7 @@ const moment = require('moment')
 exports.article_create_get = function(req, res){
     Author.find()
     .then(authors => {
-        res.render('article/add', {authors})
+        res.json({authors})
         // res.json({authors})
     }) 
     .catch(err => {console.log(err)})
@@ -52,7 +52,7 @@ exports.article_index_get = (req, res) => {
     Article.find().populate('author')
     .then(articles => {
         
-        res.render('article/index', {articles: articles, moment}) // moment: moment 
+        res.json({articles: articles, moment}) // moment: moment 
     })
     .catch(err => {
         console.log(err)

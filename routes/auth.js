@@ -15,4 +15,7 @@ router.post('/auth/signup',
     body('province').isLength({min: 2})
 ], authCntrl.auth_signup_post)
 
+router.get('/auth/allusers', authCntrl.auth_all_users_get)
+router.get('/auth/user/:_id', authCntrl.current_user_get)
+
 module.exports = router

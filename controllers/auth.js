@@ -1,5 +1,6 @@
 // API's for authentication
 const User = require('../models/User')
+const {Hobby} = require('../models/Hobby')
 const bcrypt = require('bcrypt')
 let passport = require('../helper/ppConfig');
 const salt = 10;
@@ -48,6 +49,25 @@ exports.auth_signup_post = (req, res) => {
             }
         }
     })
+}
+
+exports.auth_all_users_get = (req, res) => {
+  User.find().populate('hobby')
+  .then(users => {
+    
+    res.json({users})
+  })
+  .catch(err => console.log(err))
+}
+
+exports.current_user_get = (req, res) => {
+  console.log("hi",req.params)
+  User.findById(req.params).populate('hobby')
+  .then(user => {
+    res.json({user})
+  })
+  .catch(err => console.log(err))
+  
 }
 
 exports.auth_signin_post = async (req, res) => {
