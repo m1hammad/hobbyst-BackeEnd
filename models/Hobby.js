@@ -15,6 +15,6 @@ const hobbySchema = mongoose.Schema({
 });
 
 // create Model with the name Article
-const Hobby = mongoose.model('hobby', hobbySchema);
+const Hobby = mongoose.model('Hobby', hobbySchema);
 
 module.exports = {Hobby}
