@@ -43,23 +43,11 @@ exports.hobby_add_user = async(req, res) => {
 
 }
 
-// exports.hobby_show_get = async(req, res) => {
-//     let hobby = await Hobby.findById(req.params.hobbyId).populate('users')
-//     res.json(hobby)
-// }
 
 
-// exports.showHobby = (req, res) => {
-//     console.log("test")
-//     console.log(req.params.id)
-//     Hobby.findById(req.params.id) 
-//     .then(hobby => {
-//         console.log(hobby)
-//         res.json({hobby})
-//     })
-//     .catch( err =>{
-//         console.log(err)
-//     })
 
-// }
+exports.hobby_show_get = async(req, res) => {
+    let hobby = await Hobby.findById(req.params.id).populate('events users')
+    res.json(hobby)
+}
 
