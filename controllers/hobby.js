@@ -40,11 +40,7 @@ exports.hobby_add_user = async(req, res) => {
         // console.log(results)
     })
     res.status(200).send('Done')
-
 }
-
-
-
 
 exports.hobby_show_get = async(req, res) => {
     let hobby = await Hobby.findById(req.params.id).populate('events users')

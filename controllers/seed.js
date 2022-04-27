@@ -8,7 +8,7 @@ hobbies = [
     {name: "Literature", photo: 'https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-1024x640.jpeg', events: [], users:[]},
     {name: "Music", photo: 'https://online.berklee.edu/takenote/wp-content/uploads/2021/01/acoustic_guitar_techniques_article_image_2021.jpg', events: [], users:[]},
     {name: "Cars", photo: 'https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/model_detail/few_off/sian_rds/gallery/SIAN_rds-01.jpg', events: [], users:[]},
-    {name: "Pets & Animals", photo: 'https://i.imgur.com/ZHxXw6Z.jpeg', events: [], users:[]}, 
+    {name: "Pets & Animals", photo: 'https://www.flytap.com/-/media/Flytap/new-tap-pages/travelling-with-animals/pets/flying-with-pets-og-image-1200x630.jpg', events: [], users:[]}, 
     {name: "Film", photo: 'https://www.irishtimes.com/polopoly_fs/1.4732595.1637259611!/image/image.jpg_gen/derivatives/box_620_330/image.jpg', events: [], users:[]},  
     {name: "Tech", photo: 'https://i0.wp.com/www.erindorpress.com/wp-content/uploads/2019/06/binary.jpg?fit=590%2C290&ssl=1', events: [], users:[]},   
     {name: "Britney Spears", photo: 'https://i8.amplience.net/i/naras/britney-spears-2001-mtv-video-music-awards-gettyimages-76095012.jpeg.jpg?w=821&sm=c', events: [], users:[]}, 
