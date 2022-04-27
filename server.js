@@ -18,7 +18,7 @@ const PORT = process.env.PORT;
 
 // Initialize Express Application
 const app = express();
-
+app.use(express.json())
 // look for static files here (CSS, JS, Images, Video, Audio)
 app.use(express.static("public"));
 
@@ -41,6 +41,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(flash()) 
+
+
 
 
 
