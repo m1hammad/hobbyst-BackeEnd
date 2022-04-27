@@ -115,3 +115,10 @@ exports.auth_signin_post = async (req, res) => {
     }
   
   }
+
+exports.auth_profile_get = async (req,res)=>{
+  console.log('hitting this')
+  let user= await User.findById(req.query.id)
+  console.log(user)
+  res.json(user)
+}

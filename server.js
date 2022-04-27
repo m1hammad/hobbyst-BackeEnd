@@ -58,6 +58,7 @@ const articlesRoute = require("./routes/article");
 const authorRoutes = require("./routes/author")
 const authRoutes = require("./routes/auth");
 const hobbyRoutes = require("./routes/hobby")
+const eventRoutes = require("./routes/event")
 
 
 // Mount Routes
@@ -66,6 +67,8 @@ app.use('/', articlesRoute);
 app.use('/', authorRoutes);
 app.use('/', authRoutes);
 app.use('/', hobbyRoutes);
+app.use('/', eventRoutes);
+
 
 
 // NodeJS to look in a folder called views for all ejs files.
