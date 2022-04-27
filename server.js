@@ -3,6 +3,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 require('dotenv').config();
 const flash = require('connect-flash')
+const favicon = require('serve-favicon');
+const path = require('path');
 
 
 // const bodyParser = require('body-parser')
@@ -40,7 +42,7 @@ app.use(passport.session());
 
 app.use(flash()) 
 
-app
+
 
 
 // Sharing the information with all pages.
@@ -50,29 +52,35 @@ app.use(function(req,res,next){
   next()
 })
 
-
+app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 // Import Routes
-const indexRoute = require('./routes/index');
-const articlesRoute = require("./routes/article");
-const authorRoutes = require("./routes/author")
+// const indexRoute = require('./routes/index');
+// const articlesRoute = require("./routes/article");
+// const authorRoutes = require("./routes/author")
 const authRoutes = require("./routes/auth");
 const hobbyRoutes = require("./routes/hobby")
 const eventRoutes = require("./routes/event")
 
 
 // Mount Routes
-app.use('/', indexRoute);
-app.use('/', articlesRoute);
-app.use('/', authorRoutes);
+// app.use('/', indexRoute);
+// app.use('/', articlesRoute);
+// app.use('/', authorRoutes);
 app.use('/', authRoutes);
+
 app.use('/', hobbyRoutes);
 app.use('/', eventRoutes);
 
 
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 
 // NodeJS to look in a folder called views for all ejs files.
-app.set("view engine", "ejs");
+// app.set("view engine", "ejs");
 
 // Connection with mongoDB
 mongoose.connect(process.env.mongoDB_URL, {
