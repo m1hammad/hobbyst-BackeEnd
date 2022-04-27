@@ -20,7 +20,7 @@ const eventSchema = mongoose.Schema({
     description: {
         type:String,
         // required: true,
-        minlength: [10, 'Event description must be longer than 10 characters'],
+        minlength: [1, 'Event description must be longer than 10 characters'],
         maxlength:[1000,'Event description must be shorter than 1000 characters']
     },
     maxParticipants:{
@@ -29,13 +29,13 @@ const eventSchema = mongoose.Schema({
     preciseLocation: {
         type:String,
         // required:true,
-        minlength: [10, 'Location must be longer than 10 characters'],
+        minlength: [1, 'Location must be longer than 10 characters'],
         maxlength:1000
     }, 
     generalLocation: {
         type: String,
         // required: true,
-        minlength: [10, 'Location must be longer than 10 characters'],
+        minlength: [1, 'Location must be longer than 10 characters'],
         maxlength:1000
     }, 
     hobby: [{
