@@ -16,7 +16,7 @@ exports.hobbyseed = async(req, res) =>{
         console.log(hobbiesList)
     }
     try {
-        hobbiesList = await Hobby.find({})
+        hobbiesList = await Hobby.find({}).populate("events")
         res.json({hobbiesList})
     }
     catch(err){
