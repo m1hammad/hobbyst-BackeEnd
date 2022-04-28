@@ -31,9 +31,13 @@ exports.hobby_add_user = async(req, res) => {
     console.log("req hobby ", req.body)
     let hobbyIds = req.body
     let user = await User.findOne({emailAddress: req.params.email})
+    console.log('this is user in hobby', user)
     hobbyIds.forEach(async id => {
         let hobby = await Hobby.findById(id)
+<<<<<<< HEAD
         // console.log(user._id)
+=======
+>>>>>>> 41a8ce54a09d806b7e168b5f54383bbfcdb69bee
         await hobby.users.push(user._id)
         hobby.save()
         console.log(hobby)
@@ -47,19 +51,4 @@ exports.hobby_show_get = async(req, res) => {
     let hobby = await Hobby.findById(req.params.id).populate('events users')
     res.json(hobby)
 }
-
-
-// exports.showHobby = (req, res) => {
-//     console.log("test")
-//     console.log(req.params.id)
-//     Hobby.findById(req.params.id) 
-//     .then(hobby => {
-//         console.log(hobby)
-//         res.json({hobby})
-//     })
-//     .catch( err =>{
-//         console.log(err)
-//     })
-
-// }
 
