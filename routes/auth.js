@@ -5,6 +5,7 @@ const methodOverride = require('method-override')
 router.use(methodOverride('_method'))
 
 const authCntrl = require('../controllers/auth')
+const isLoggedIn = require('../helper/isLoggedIn')
 
 router.post('/auth/signin', authCntrl.auth_signin_post)
 

@@ -71,6 +71,7 @@ exports.current_user_get = (req, res) => {
 }
 
 exports.auth_signin_post = async (req, res) => {
+    console.log('this is line 74!',req.body)
     // req.body.emailAddress
     // req.body.password
   
@@ -118,7 +119,7 @@ exports.auth_signin_post = async (req, res) => {
 
 exports.auth_profile_get = async (req,res)=>{
   console.log('hitting this')
-  let user= await User.findById(req.query.id)
+  let user= await User.findById(req.query.id).populate('hobby').populate('events')
   console.log(user)
   res.json(user)
 }

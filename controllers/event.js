@@ -34,6 +34,11 @@ const {Hobby} = require('../models/Hobby')
     res.status(200).send('Done')
   
   }
+  exports.event_detail = async (req, res) =>{
+    let event = await Event.findById(req.params.eventid)
+    res.status(200).send('Done')
+
+
 
   exports.event_delete = (req,res) => {
     console.log("what is this",req.params)
@@ -44,6 +49,7 @@ const {Hobby} = require('../models/Hobby')
     .catch( err=> {
         console.log(err)
     })
+
   }
 
   exports.event_edit_put = (req, res) => {
