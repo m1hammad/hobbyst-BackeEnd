@@ -43,7 +43,12 @@ const {Hobby} = require('../models/Hobby')
     res.status(200).send('Done')
   
   }
+  exports.event_detail = async (req, res) =>{
+    let event = await Event.findById(req.params.eventid)
+    res.status(200).send('Done')
 
+
+  }
 
     // exports.hobby_add_avent = async(req, res) => {
     //   console.log("email:", req.params.email)
