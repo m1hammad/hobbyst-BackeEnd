@@ -52,7 +52,7 @@ const userSchema = mongoose.Schema({
         type:String,
         required: true,
         default:' ',
-        minlength: 2,
+        minlength: 0,
         maxlength:150
     },
     hobby: [{
