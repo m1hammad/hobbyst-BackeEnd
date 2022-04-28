@@ -16,7 +16,7 @@ module.exports = (req, res, next) =>{
 
     // Token from Authorization Header
     let authorizationToken = req.header("Authorization")
-    console.log(authorizationToken)
+    console.log(authorizationToken,'authorization token in middleware')
     authorizationToken = authorizationToken.replace("Bearer ", '')
     console.log(authorizationToken)
     const token = authorizationToken
