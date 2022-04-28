@@ -34,3 +34,7 @@ exports.profile_delete_user = (req,res) => {
         console.log(err)
     })
   }
+
+exports.profile_hobbies =(req, res) =>{
+  
+}

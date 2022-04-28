@@ -12,7 +12,6 @@ exports.hobbyseed = async(req, res) =>{
         for (let hobby of hobbies)
             {
                 await Hobby.create(hobby)
-
             };
         console.log(hobbiesList)
     }
@@ -24,6 +23,11 @@ exports.hobbyseed = async(req, res) =>{
         console.log(err)
         res.send('ERROR')
     }
+}
+
+exports.hobby_user_show = async(req, res) => {
+    let userhobbylist= await User.findById(req.params.id).populate('hobby')
+    res.json({userhobbylist})
 }
 
 exports.hobby_add_user = async(req, res) => {
