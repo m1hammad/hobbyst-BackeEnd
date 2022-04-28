@@ -63,3 +63,4 @@ const {Hobby} = require('../models/Hobby')
         console.log(err)
     })
   }
+}

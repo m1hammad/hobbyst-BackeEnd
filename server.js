@@ -66,7 +66,6 @@ const eventRoutes = require("./routes/event")
 
 // Mount Routes
 app.use('/', authRoutes);
-
 app.use('/', hobbyRoutes);
 app.use('/', eventRoutes);
 
