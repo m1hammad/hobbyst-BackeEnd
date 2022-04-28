@@ -71,6 +71,7 @@ exports.current_user_get = (req, res) => {
 }
 
 exports.auth_signin_post = async (req, res) => {
+    console.log('this is line 74!',req.body)
     // req.body.emailAddress
     // req.body.password
   

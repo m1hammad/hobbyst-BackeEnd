@@ -2,6 +2,7 @@ const router = require('express').Router()
 const {body} = require('express-validator')
 
 const authCntrl = require('../controllers/auth')
+const isLoggedIn = require('../helper/isLoggedIn')
 
 router.post('/auth/signin', authCntrl.auth_signin_post)
 
