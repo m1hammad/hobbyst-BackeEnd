@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 require('dotenv').config();
 const flash = require('connect-flash')
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const path = require('path');
 
 
@@ -45,9 +45,6 @@ app.use(flash())
 
 
 
-
-
-
 // Sharing the information with all pages.
 app.use(function(req,res,next){
   res.locals.currentUser = req.user;
@@ -55,7 +52,7 @@ app.use(function(req,res,next){
   next()
 })
 
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'build', 'favicon.icon')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Import Routes
