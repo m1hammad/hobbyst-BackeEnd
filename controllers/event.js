@@ -54,7 +54,6 @@ const {Hobby} = require('../models/Hobby')
         res.json({event})
     })
     .catch(err => {
-      
         console.log(err)
     })
   }
