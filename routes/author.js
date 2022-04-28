@@ -19,7 +19,7 @@ router.get('/author/index', authorCtrl.author_index_get)
 
 router.get('/author/detail', authorCtrl.author_show_get)
 
-router.delete('/author/delete',  isLoggedIn, authorCtrl.author_delete_get)
+// router.delete('/author/delete',  isLoggedIn, authorCtrl.author_delete_get)
 
 // Using method-override
 // router.delete('/author/delete', authorCtrl.author_delete_get)

@@ -31,38 +31,29 @@ const {Hobby} = require('../models/Hobby')
       let results = await Hobby.findById(hobbyid._id)
       console.log(results)
     })
-    // find the id's of the hobbies in Event
-    // let hobbies = await newEvent.hobby
-    // hobbi =Hobby.find({})
-   
-    // for (let hobby in hobbies){
-    //   await hobbi.findById(hobby._id).push(newEvent._id)
-    //   console.log("hobby", Hobby.findById(hobby._id))
-    //   Hobby.save()
-    // }
     res.status(200).send('Done')
   
   }
 
+  exports.event_delete = (req,res) => {
+    console.log("what is this",req.params)
+    Event.findByIdAndDelete(req.params)
+    .then(event =>{
+        res.json(event)
+    })
+    .catch( err=> {
+        console.log(err)
+    })
+  }
 
-    // exports.hobby_add_avent = async(req, res) => {
-    //   console.log("email:", req.params.email)
-    //   console.log("req hobby ", req.body)
-    //   let hobbyIds = req.body
-    //   let user = await User.findOne({emailAddress: req.params.email})
-    //   hobbyIds.forEach(async id => {
-    //       let hobby = await Hobby.findById(id)
-    //       hobby.users.push(user._id)
-    //       hobby.save()
-    //   })
-      
-      
-  //   .then(async newEvent => {
-  //     console.log("evet is", await newEvent)
-  //     res.json({newEvent})
-  //   }) 
-  //   .catch((err) => {
-  //     console.log(err)
-  //     res.send('ERROR')
-  // })
-
+  exports.event_edit_put = (req, res) => {
+    console.log("body",req.params)
+    Event.findByIdAndUpdate(req.params, req.body, {new: true})
+    .then((event) => {
+        console.log(event)
+        res.json({event})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+  }
