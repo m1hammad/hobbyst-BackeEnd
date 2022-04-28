@@ -34,15 +34,25 @@ const {Hobby} = require('../models/Hobby')
     res.status(200).send('Done')
   
   }
-  exports.event_detail = async (req, res) =>{
-    let event = await Event.findById(req.params.eventid)
-    res.status(200).send('Done')
+  exports.event_detail = (req, res) =>{
+    Event.findById(req.params.eventid).populate("users hobby")
+    .then(event =>{
+      res.json(event)
+      res.status(200).send('Done')
+  })
+  .catch( err=> {
+      console.log(err)
+  })
+
+}
+
+    
 
 
 
   exports.event_delete = (req,res) => {
-    console.log("what is this",req.params)
-    Event.findByIdAndDelete(req.params)
+    console.log("what is this",req.params.eventid)
+    Event.findByIdAndDelete(req.params.eventid)
     .then(event =>{
         res.json(event)
     })
@@ -54,7 +64,7 @@ const {Hobby} = require('../models/Hobby')
 
   exports.event_edit_put = (req, res) => {
     console.log("body",req.params)
-    Event.findByIdAndUpdate(req.params, req.body, {new: true})
+    Event.findByIdAndUpdate(req.params.eventid, req.body, {new: true})
     .then((event) => {
         console.log(event)
         res.json({event})
@@ -63,4 +73,3 @@ const {Hobby} = require('../models/Hobby')
         console.log(err)
     })
   }
-}
