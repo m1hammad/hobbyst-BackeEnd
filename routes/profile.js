@@ -13,6 +13,6 @@ router.get('/profile', profileCntrl.profile_get)
 router.put('/profile/edit/:_id', profileCntrl.profile_edit_put)
 
 //Delete
-router.delete('/profile/delete/:_id', ()=>{profileCntrl.profile_delete_user})
+router.delete('/profile/delete/:_id', profileCntrl.profile_delete_user)
 
 module.exports = router

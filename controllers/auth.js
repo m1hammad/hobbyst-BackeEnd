@@ -124,25 +124,25 @@ exports.auth_profile_get = async (req,res)=>{
   res.json(user)
 }
 
-exports.delete_user = (req,res) => {
-  User.findByIdAndDelete(req.params)
-  .then(user =>{
-      res.json(user)
-  })
-  .catch( err=> {
-      console.log(err)
-  })
-}
+// exports.delete_user = (req,res) => {
+//   User.findByIdAndDelete(req.params)
+//   .then(user =>{
+//       res.json(user)
+//   })
+//   .catch( err=> {
+//       console.log(err)
+//   })
+// }
 
-exports.user_edit_put = (req, res) => {
-  console.log("body",req.params)
-  User.findByIdAndUpdate(req.params, req.body, {new: true})
-  .then((user) => {
-      console.log(user)
-      res.json({user})
-  })
-  .catch(err => {
-      console.log(err)
-  })
-}
+// exports.user_edit_put = (req, res) => {
+//   console.log("body",req.params)
+//   User.findByIdAndUpdate(req.params, req.body, {new: true})
+//   .then((user) => {
+//       console.log(user)
+//       res.json({user})
+//   })
+//   .catch(err => {
+//       console.log(err)
+//   })
+// }
 
