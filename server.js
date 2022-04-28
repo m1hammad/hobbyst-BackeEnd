@@ -62,13 +62,14 @@ app.use(express.static(path.join(__dirname, 'build')));
 const authRoutes = require("./routes/auth");
 const hobbyRoutes = require("./routes/hobby")
 const eventRoutes = require("./routes/event")
-
+const profileRoutes = require("./routes/profile")
 
 // Mount Routes
 app.use('/', authRoutes);
 
 app.use('/', hobbyRoutes);
 app.use('/', eventRoutes);
+app.use('/', profileRoutes)
 
 
 app.get('/*', function(req, res) {
