@@ -66,7 +66,6 @@ const profileRoutes = require("./routes/profile")
 
 // Mount Routes
 app.use('/', authRoutes);
-
 app.use('/', hobbyRoutes);
 app.use('/', eventRoutes);
 app.use('/', profileRoutes)
