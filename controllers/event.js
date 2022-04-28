@@ -34,11 +34,12 @@ const {Hobby} = require('../models/Hobby')
     res.status(200).send('Done')
   
   }
+
   exports.event_detail = (req, res) =>{
     Event.findById(req.params.eventid).populate("users hobby")
     .then(event =>{
       res.json(event)
-      res.status(200).send('Done')
+      // res.status(200).send('Done')
   })
   .catch( err=> {
       console.log(err)
@@ -47,8 +48,6 @@ const {Hobby} = require('../models/Hobby')
 }
 
     
-
-
 
   exports.event_delete = (req,res) => {
     console.log("what is this",req.params.eventid)

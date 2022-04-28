@@ -9,10 +9,10 @@ router.use(methodOverride('_method'))
 
 router.get('/hobbyindex',hobbyCntrl.hobbyseed)
 router.post('/hobbyUser/:email', hobbyCntrl.hobby_add_user)
-
+router.get('/hobbylist/:id', hobbyCntrl.hobby_user_show)
 router.get('/hobbydetail/:id', hobbyCntrl.hobby_show_get)
 
-// router.get('/hobbydetail/:id',hobbyCntrl.showHobby)
+
 
 
 
