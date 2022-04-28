@@ -19,6 +19,7 @@ const PORT = process.env.PORT;
 // Initialize Express Application
 const app = express();
 app.use(express.json())
+
 // look for static files here (CSS, JS, Images, Video, Audio)
 app.use(express.static("public"));
 
@@ -58,22 +59,16 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.icon')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Import Routes
-// const indexRoute = require('./routes/index');
-// const articlesRoute = require("./routes/article");
-// const authorRoutes = require("./routes/author")
 const authRoutes = require("./routes/auth");
 const hobbyRoutes = require("./routes/hobby")
 const eventRoutes = require("./routes/event")
-
+const profileRoutes = require("./routes/profile")
 
 // Mount Routes
-// app.use('/', indexRoute);
-// app.use('/', articlesRoute);
-// app.use('/', authorRoutes);
 app.use('/', authRoutes);
-
 app.use('/', hobbyRoutes);
 app.use('/', eventRoutes);
+app.use('/', profileRoutes)
 
 
 app.get('/*', function(req, res) {

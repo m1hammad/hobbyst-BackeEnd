@@ -48,6 +48,13 @@ const userSchema = mongoose.Schema({
         minlength: 2,
         maxlength:150
     },
+    about:{
+        type:String,
+        required: true,
+        default:' ',
+        minlength: 0,
+        maxlength:150
+    },
     hobby: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Hobby',

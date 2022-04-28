@@ -71,6 +71,7 @@ exports.current_user_get = (req, res) => {
 }
 
 exports.auth_signin_post = async (req, res) => {
+    console.log('this is line 74!',req.body)
     // req.body.emailAddress
     // req.body.password
   
@@ -118,7 +119,30 @@ exports.auth_signin_post = async (req, res) => {
 
 exports.auth_profile_get = async (req,res)=>{
   console.log('hitting this')
-  let user= await User.findById(req.query.id)
+  let user= await User.findById(req.query.id).populate('hobby').populate('events')
   console.log(user)
   res.json(user)
 }
+
+exports.delete_user = (req,res) => {
+  User.findByIdAndDelete(req.params)
+  .then(user =>{
+      res.json(user)
+  })
+  .catch( err=> {
+      console.log(err)
+  })
+}
+
+exports.user_edit_put = (req, res) => {
+  console.log("body",req.params)
+  User.findByIdAndUpdate(req.params, req.body, {new: true})
+  .then((user) => {
+      console.log(user)
+      res.json({user})
+  })
+  .catch(err => {
+      console.log(err)
+  })
+}
+
