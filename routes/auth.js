@@ -24,7 +24,7 @@ router.get('/auth/allusers', authCntrl.auth_all_users_get)
 router.get('/auth/user/:_id', authCntrl.current_user_get)
 router.delete('/user/delete/:_id', ()=>{authCntrl.delete_user})
 
-router.get('/profile', authCntrl.auth_profile_get)
+
 router.put("/user/edit/:_id", ()=>{authCntrl.user_edit_put})
 
 module.exports = router
