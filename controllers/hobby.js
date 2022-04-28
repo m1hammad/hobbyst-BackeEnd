@@ -30,6 +30,7 @@ exports.hobby_add_user = async(req, res) => {
     console.log("email:", req.params.email)
     console.log("req hobby ", req.body)
     let hobbyIds = req.body
+    console.log(await User.findOne({emailAddress: 'lat@est'}))
     let user = await User.findOne({emailAddress: req.params.email})
     console.log('this is user in hobby', user)
     hobbyIds.forEach(async id => {
