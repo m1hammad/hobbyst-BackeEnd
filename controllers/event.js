@@ -36,6 +36,7 @@ const {Hobby} = require('../models/Hobby')
   }
 
   exports.event_detail = async (req, res) =>{
+    console.log("what is req.params.id for evendID",req.params.eventid )
     let event = await Event.findById(req.params.eventid).populate("users hobby")
     res.json({event})
       // res.status(200).send('Done')
