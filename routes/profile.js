@@ -6,11 +6,12 @@ const profileCntrl = require('../controllers/profile')
 //Creation in Auth route
 
 //Read
-router.get('/profile', profileCntrl.profile_get)
+router.get('/profile', profileCntrl.profile_get) 
+router.get('/profile/edit/:_id', profileCntrl.profile_edit_get)
 
 //Update
-
 router.put('/profile/edit/:_id', profileCntrl.profile_edit_put)
+
 
 //Delete
 router.delete('/profile/delete/:_id', profileCntrl.profile_delete_user)
