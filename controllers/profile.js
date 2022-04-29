@@ -12,6 +12,16 @@ exports.profile_get = async (req,res)=>{
     res.json(user)
   }
 
+exports.profile_edit_get = (req,res) => { 
+    User.findById(req.params.id) 
+    .then((user) => { 
+      console.log(user)
+      res.json({user})
+    }) 
+    .catch(err=> { 
+        console.log(err)
+    })
+} 
 
 exports.profile_edit_put = (req, res) => {
   console.log("body",req.params)

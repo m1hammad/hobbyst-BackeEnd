@@ -40,9 +40,11 @@ exports.hobby_add_user = async(req, res) => {
     hobbyIds.forEach(async id => {
         let hobby = await Hobby.findById(id)
         // console.log(user._id)
-        await hobby.users.push(user._id)
-        hobby.save()
-        console.log(hobby)
+        if (user) {  
+            await hobby.users.push(user._id)
+            hobby.save()
+            console.log(hobby)
+        }
         // let results = await Hobby.findById(hobbyIds)
         // console.log(results)
     })

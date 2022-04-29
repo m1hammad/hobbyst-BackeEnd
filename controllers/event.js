@@ -35,19 +35,29 @@ const {Hobby} = require('../models/Hobby')
   
   }
 
-  exports.event_detail = (req, res) =>{
-    Event.findById(req.params.eventid).populate("users hobby")
-    .then(event =>{
-      res.json(event)
+  exports.event_detail = async (req, res) =>{
+    console.log("what is req.params.id for evendID",req.params.eventid )
+    let event = await Event.findById(req.params.eventid).populate("users hobby")
+    res.json({event})
       // res.status(200).send('Done')
-  })
-  .catch( err=> {
+  }
+
+  exports.event_add_user = async (req, res) =>{
+    console.log("EVENT id, event obj: user", req.params.eventid, req.params.userid)
+    let event = await Event.findById(req.params.eventid)
+    await event.users.push(req.params.userid)
+    event.save()
+    let user = await User.findById(req.params.userid)
+    await user.event.push(req.params.eventid)
+    user.save()
+    console.log("USER id:,user obj:", req.params.userid, user)
+    .then(event => {
+      res.json(eventid)
+    })
+    .catch(err => {
       console.log(err)
-  })
-
-}
-
-    
+    })
+  }
 
   exports.event_delete = (req,res) => {
     console.log("what is this",req.params.eventid)
